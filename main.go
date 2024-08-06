@@ -7,7 +7,7 @@ import (
 	// testMap "learnCode/helloworld/testMap"
 	// testStruct "learnCode/helloworld/testStruct"
 	// testFunction "learnCode/helloworld/function"
-	testInterface "learnCode/helloworld/testInterface"
+	testInterface "./testInterface"
 )
 
 func main() {

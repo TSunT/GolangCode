@@ -25,7 +25,13 @@ func (book *Book) ToString() string {
 	// fmt.Println("}")
 	timeStr := book.publishDate.Format("2006-01-02 15:04:05")
 	page := strconv.Itoa(book.page)
-	return "Book{" + " name:" + book.name + ", page: " + page + ", publish date: " + timeStr + " }"
+	return "BookToString{" + " name:" + book.name + ", page: " + page + ", publish date: " + timeStr + " }"
+}
+
+func (book Book) stringFormart() string {
+	timeStr := book.publishDate.Format("2006-01-02 15:04:05")
+	page := strconv.Itoa(book.page)
+	return "BookFormat{" + " name:" + book.name + ", page: " + page + ", publish date: " + timeStr + " }"
 }
 
 // 空接口表示任何数据类型 使用断言判定类型
@@ -45,9 +51,11 @@ func showString(value interface{}) {
 	switch typeStr := value.(type) { // 使用 value.(type) 注意 这里结合switch-case使用 判定类型 返回类型指针
 	case string:
 		result = value.(string)
+	case Book:
+		fmt.Println("Book type!")
+		result = value.(Book).stringFormart()
 	case OfString:
-		tempBook := value.(OfString)
-		result = tempBook.ToString()
+		result = value.(OfString).ToString()
 	default:
 		fmt.Printf("justify type: %T\n", typeStr)
 		result = "can't convert string"
