@@ -28,7 +28,7 @@ func (book *Book) ToString() string {
 	return "BookToString{" + " name:" + book.name + ", page: " + page + ", publish date: " + timeStr + " }"
 }
 
-func (book Book) stringFormart() string {
+func (book Book) stringFormat() string {
 	timeStr := book.publishDate.Format("2006-01-02 15:04:05")
 	page := strconv.Itoa(book.page)
 	return "BookFormat{" + " name:" + book.name + ", page: " + page + ", publish date: " + timeStr + " }"
@@ -53,7 +53,7 @@ func showString(value interface{}) {
 		result = value.(string)
 	case Book:
 		fmt.Println("Book type!")
-		result = value.(Book).stringFormart()
+		result = value.(Book).stringFormat()
 	case OfString:
 		result = value.(OfString).ToString()
 	default:

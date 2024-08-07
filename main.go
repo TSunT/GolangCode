@@ -7,7 +7,9 @@ import (
 	// testMap "learnCode/helloworld/testMap"
 	// testStruct "learnCode/helloworld/testStruct"
 	// testFunction "learnCode/helloworld/function"
-	testInterface "./testInterface"
+	// testInterface "./testInterface"
+	// testPair "./testPair"
+	testReflect "./testReflect"
 )
 
 func main() {
@@ -18,5 +20,6 @@ func main() {
 	// testStruct.TestHeroClass()
 	// testStruct.TestHumanInherit()
 	// testFunction.TestFunc()
-	testInterface.TestInterfaceAssert()
+	// testInterface.TestInterfaceAssert()
+	testReflect.TestReflectFunc()
 }
