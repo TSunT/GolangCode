@@ -22,8 +22,14 @@ func reflectPrint(arg interface{}) {
 	// 3. 通过value 获取field对应的value 使用 Interface()
 	for i := 0; i < inputType.NumField(); i++ {
 		field := inputType.Field(i)
-		value := inputValue.Field(i).Interface()
-		fmt.Printf("field name: %s, type: %v, value: %v \n", field.Name, field.Type, value)
+		if field.IsExported() { // 判定是否可导出 只要是 "public" 首字母大写的属性才可以判定是true
+			fieldInfo := field.Tag.Get("info")
+			value := inputValue.Field(i).Interface()
+			fmt.Printf("field name: %s, type: %v, Tag: %s, value: %v \n", field.Name, field.Type, fieldInfo, value)
+		} else {
+			fmt.Println("field is Not Exported!")
+		}
+
 	}
 	// 通过type 获取其方法 (访问公开方法)
 	for i := 0; i < inputType.NumMethod(); i++ {
@@ -33,10 +39,10 @@ func reflectPrint(arg interface{}) {
 }
 
 type User struct {
-	Id    string
-	Age   int
-	Name  string
-	Birth time.Time
+	Id    string    `info:"Id" json:"id"`
+	Age   int       `info:"Age" json:"age"`
+	Name  string    `info:"Name" json:"name"`
+	birth time.Time `info:"birth" json:"birth"`
 }
 
 func (user User) CallUser() {
@@ -48,6 +54,6 @@ func TestReflectFunc() {
 
 	reflectField(num)
 
-	user := User{Id: "1", Age: 11, Name: "abc", Birth: time.Now()}
+	user := User{Id: "1", Age: 11, Name: "abc", birth: time.Now()}
 	reflectPrint(user)
 }

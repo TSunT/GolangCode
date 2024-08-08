@@ -9,7 +9,8 @@ import (
 	// testFunction "learnCode/helloworld/function"
 	// testInterface "./testInterface"
 	// testPair "./testPair"
-	testReflect "./testReflect"
+	// testReflect "./testReflect"
+	testGoroutine "./testGoroutine"
 )
 
 func main() {
@@ -21,5 +22,7 @@ func main() {
 	// testStruct.TestHumanInherit()
 	// testFunction.TestFunc()
 	// testInterface.TestInterfaceAssert()
-	testReflect.TestReflectFunc()
+	// testReflect.TestStructToJson()
+	// testReflect.TestJsonToStruct()
+	testGoroutine.TaskMainTask()
 }
