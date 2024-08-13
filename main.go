@@ -10,7 +10,8 @@ import (
 	// testInterface "./testInterface"
 	// testPair "./testPair"
 	// testReflect "./testReflect"
-	testGoroutine "./testGoroutine"
+	// testGoroutine "./testGoroutine"
+	testChannel "./testChannel"
 )
 
 func main() {
@@ -24,5 +25,7 @@ func main() {
 	// testInterface.TestInterfaceAssert()
 	// testReflect.TestStructToJson()
 	// testReflect.TestJsonToStruct()
-	testGoroutine.TaskMainTask()
+	// testGoroutine.TaskMainTask()
+	testChannel.Text_Fibonacii()
+	testChannel.TestChannelWithCache()
 }
